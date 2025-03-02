@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasySafar</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            margin-right: 5px;
+        }
+
+        .search-icon {
+            color: white;
+            cursor: pointer;
+        }
+
+        .about,
+        .blog {
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
+        .ads-container {
+            background: #e74c3c;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .content {
+            width: 40%;
+        }
+
+        .box-main {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .box {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .box:hover {
+            background: #ecf0f1;
+        }
+
+        .map-placeholder {
+            width: 55%;
+            height: 400px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .haha {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-bus"></i> EasySafar
+        </div>
+        <div class="search-container">
+            <input type="text" class="search" placeholder="Search...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <div class="about"> <a href="About.html">About </a></div>
+
+        <div class="about"> <a href="news.html">Traffic News </a></div>
+        <div class="about"> <a href="Blog.html">Blog </a></div>
+
+    </nav>
+
+    <div class="ads-container">
+        <marquee behavior="scroll" direction="left">🚗 Get Live Traffic Updates | 🏪 Find Nearby Cafes | 🚔 Locate
+            Police Stations | 🏆 Earn Rewards!</marquee>
+    </div>
+
+    <div class="main-container">
+        <div class="content">
+            <div class="box-main">Choose What You Want To Update:</div>
+            <div class="box"> <a class="haha" href="form1.html">Thefts around </a></div>
+
+
+            <div class="box">Information About Police Barricades...</div>
+            <div class="box">Crowded Areas...</div>
+            <div class="box">Unsafe Areas...</div>
+        </div>
+
+        <div class="map-placeholder">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var map = L.map('map').setView([28.6139, 77.2090], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            var marker = L.marker([28.6139, 77.2090]).addTo(map)
+                .bindPopup("You're here! 📍")
+                .openPopup();
+        });
+    </script>
+
+</body>
+
+</html>

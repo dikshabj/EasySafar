@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic News Updates</title>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .news-container {
+            background: #967272;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-y: auto;
+            max-height: 500px;
+            width: 50%;
+            text-align: center;
+        }
+
+        .news-item {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgb(225, 206, 206);
+        }
+
+        .news-item a {
+            color: rgb(189, 38, 38);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="news-container" id="newsContainer">
+        <h1>🚦 Traffic News Updates</h1>
+        <p>Loading latest traffic news...</p>
+    </div>
+
+    <script>
+        let newsApiKey = "3e24865a176842be9e7870911068fceb";
+        let defaultCity = "Delhi";
+
+        function fetchNews(city) {
+            let url = `https://newsapi.org/v2/everything?q=${city} traffic&apiKey=${newsApiKey}`;
+            $.get(url, function (data) {
+                let articles = data.articles;
+                let newsHtml = "<h1>🚦 Traffic News Updates</h1>";
+                articles.forEach(article => {
+                    newsHtml += `
+                        <div class="news-item">
+                            <h3>${article.title}</h3>
+                            <p>${article.description}</p>
+                            <a href="${article.url}" target="_blank">Read more</a>
+                        </div>
+                    `;
+                });
+                $("#newsContainer").html(newsHtml);
+            }).fail(function () {
+                $("#newsContainer").html("<h1>🚦 Traffic News Updates</h1><p>Failed to load news. Please try again later.</p>");
+            });
+        }
+
+        function getLocationAndFetchData() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    let lat = position.coords.latitude;
+                    let lon = position.coords.longitude;
+                    fetchNews(defaultCity);
+                }, () => {
+                    alert("❌ Location access denied! Showing news for Delhi.");
+                    fetchNews("Delhi");
+                });
+            } else {
+                alert("❌ Geolocation not supported! Showing Delhi data.");
+                fetchNews("Delhi");
+            }
+        }
+
+        getLocationAndFetchData();
+    </script>
+</body>
+
+</html>
