@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Traffic Update Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        body {
+            background-color: white;
+            color: rgb(9, 54, 72);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 350px;
+            background: #222;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .swiper-slide img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .swiper-pagination-bullet {
+            background-color: rgb(246, 236, 236) !important;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: rgb(251, 246, 246) !important;
+            width: 30px;
+            height: 30px;
+        }
+
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 20px;
+        }
+
+        h2{
+color : white;
+        }
+
+        p{
+    color : cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🚀 About Our Website</h1>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <h2>📍 Real-Time Traffic & Route Updates</h2>
+                    <p>Drivers can upload photo/video proof of traffic updates instantly.</p>
+                    <img src="Real-Time Traffic & Route Updates.webp" alt="Traffic Update">
+                </div>
+                <div class="swiper-slide">
+                    <h2>🏆 Driver Rewards System</h2>
+                    <p>Earn rewards and coupons by sharing real-time updates.</p>
+                    <img src="Driver Rewards System.jpg" alt="Driver Rewards">
+                </div>
+                <div class="swiper-slide">
+                    <h2>🚫 Accident-Prone & Unsafe Area Alerts</h2>
+                    <p>Stay informed about theft-prone and high-crime zones.</p>
+                    <img src="Accident-Prone & Unsafe Area Alert.jpg" alt="Accident Alert">
+                </div>
+                <div class="swiper-slide">
+                    <h2>⛈ Weather-Based Route Warnings</h2>
+                    <p>Get live weather conditions on highways and routes.</p>
+                    <img src="Weather-Based Route Warning.jpg" alt="Weather Warning">
+                </div>
+                <div class="swiper-slide">
+                    <h2>🔥 Emergency & Hazard Alerts</h2>
+                    <p>Receive instant alerts on road accidents, landslides, and more.</p>
+                    <img src="Emergency & Hazard Alerts.webp" alt="Emergency Alert">
+                </div>
+                <div class="swiper-slide">
+                    <h2>🚗 Vehicle-Specific Route Warnings</h2>
+                    <p>Alerts for restricted areas based on vehicle type.</p>
+                    <img src="Vehicle-Specific Route Warnings.avif" alt="Vehicle Warning">
+                </div>
+                <div class="swiper-slide">
+                    <h2>🎙 Voice-Based Driver Updates</h2>
+                    <p>Drivers can submit voice reports while driving safely.</p>
+                    <img src="Voice-Based Driver Update.webp" alt="Voice Update">
+                </div>
+                <div class="swiper-slide">
+                    <h2>🍽 Highway Restaurants & Rest Houses Reviews</h2>
+                    <p>Find top-rated food and rest stops along your route.</p>
+                    <img src="Highway Restaurants & Rest Houses Review.jpg" alt="Restaurant Review">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                loop: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        });
+    </script>
+</body>
+
+</html>
